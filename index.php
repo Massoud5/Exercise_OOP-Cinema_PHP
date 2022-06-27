@@ -10,13 +10,21 @@
 
 <?php
 
-include("genre.php");
-include("film.php");
-include("personne.php");
-include("realisateur.php");
-include("role.php");
-include("acteur.php");
-include("casting.php");
+// include("genre.php");
+// include("film.php");
+// include("personne.php");
+// include("realisateur.php");
+// include("role.php");
+// include("acteur.php");
+// include("casting.php");
+
+//fonction pour load tout les fichiers présent dans le dossier, équivalent à écrire tout les fichiers requis sans avoir le soucis de l'ordre de load des dépendances.
+
+spl_autoload_register(function ($class_name) {
+
+    require $class_name . '.php';
+
+});
 
 
 $realisateur1 = new Realisateur("Miller", "George", "H", "1985-03-01");
@@ -63,50 +71,14 @@ $cast11 = new Casting ($film4, $acteur3 , $role8);
 $cast12 = new Casting ($film4, $acteur8 , $role9);
 $cast13 = new Casting ($film4, $acteur9 , $role10);
 
-
-// var_dump($acteur1); // castFilmArr est sans valeur!!!
-
-echo $cast1;
-echo $cast2;
-echo $cast3;
-echo $cast4;
-
-
-
+echo $role1 -> afficherActeursDeRole(); 
+echo $film1 -> afficherCastingDeFilm();
+echo $genre1 -> afficherFilmsParGenre();
+echo $acteur1 -> afficherFilmographie();
+echo $realisateur1 -> afficherFilmRealise();
 
 ?>
 
 
 </body>
 </html>
-
-<!--// $role1 -> addActorToRole($acteur7); 
-    // $role1 -> addActorToRole($acteur1); 
-    // $role2 -> addActorToRole($acteur2); 
-    // $role3 -> addActorToRole($acteur2); 
-    // $role4 -> addActorToRole($acteur3); 
-    // $role5 -> addActorToRole($acteur4); 
-    // $role6 -> addActorToRole($acteur5); 
-    // $role7 -> addActorToRole($acteur5); 
-    // $role8 -> addActorToRole($acteur6); 
-    // $role9 -> addActorToRole($acteur8); 
-    // $role10 -> addActorToRole($acteur9); 
-
-    // $film1 -> addActorToFilm($acteur1);
-    // $film1 -> addActorToFilm($acteur2);
-    // $film1 -> addActorToFilm($acteur3);
-    // $film2 -> addActorToFilm($acteur1);
-    // $film2 -> addActorToFilm($acteur4);
-    // $film2 -> addActorToFilm($acteur5);
-    // $film3 -> addActorToFilm($acteur1);
-    // $film3 -> addActorToFilm($acteur5);
-    // $film3 -> addActorToFilm($acteur6);
-    // $film4 -> addActorToFilm($acteur7);
-    // $film4 -> addActorToFilm($acteur8);
-    // $film4 -> addActorToFilm($acteur9);
-
-    // echo $realisateur1 -> afficherFilmRealise();
-    // echo $genre1 -> afficherFilmsParGenre();
-    // echo $acteur1 -> afficherFilmographie();
-    // echo $role1 -> afficherActeursDeRole();
--->

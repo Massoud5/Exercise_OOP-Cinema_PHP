@@ -4,9 +4,21 @@
 
 ### What I learned:
 
-- To Use the standard format of date in "DateTime(yyyy-mm-dd)"
+- To Use the standard string date in "DateTime(yyyy-mm-dd)"
 
-- To simulaneously add value in two arrays of two classes, by setting a method in one of the classes - between "Acteur" and "Role"(it's commented because I found a way to link three classes which is more useful) - . 
- 
-- To link three classes ("Film", "Acteur" and "Role") in a new class ("Casting") by
-creating an array in each three classes and adding value by "Casting"'s new object.
+- To create a casting of films and to store it in an array. I have a "Casting" class where I add linked(by casting instantiation) objects of "film", "acteur" and "role"(instantiated in "index.php") in each of three cast arrays created in objects's class.
+
+- "spl_autoload_register()" to automatize class loading in "index.php" 
+
+- Associate array(add a value in two array in the same time)
+
+    Class method:                           
+
+        public function addActorToRole($acteur) {
+        $this -> _actorsOfRole[] = $acteur;
+        $acteur -> addRoleToActor($this); // role class's method
+        }
+
+    Index declaration:
+
+        $role1 -> addActorToRole($acteur7); 

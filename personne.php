@@ -1,5 +1,7 @@
 <?php
 
+// parent class of Acteur and Realisateur
+
 class Personne 
 {
     protected string $_nom;

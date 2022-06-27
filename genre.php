@@ -30,7 +30,7 @@ class Genre
         foreach($this -> _filmsParGenre as $film) {
             $result.= " <li>$film</li>";
         }
-        $result .= "</ul>";
+        $result .= "</ul><hr>";
 
         return $result;
     }

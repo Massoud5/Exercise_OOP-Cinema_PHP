@@ -24,27 +24,22 @@ class Role
         $this -> _castRoleArr[] = $role;
     }
 
+    public function afficherActeursDeRole() {
+        $result = "<h3>Le role de \"$this\" a été incarné par: </h3>
+                    <ul>";
+        foreach($this -> _castRoleArr as $actor) {
+            $result .= "<li>$actor</li>";
+        }
+    
+        $result .= "</ul><hr>";
+    
+        return $result;
+    }
+
     public function __toString()
     {
         return $this -> _role ;
     }
 }
 
-
-    // public function addActorToRole($acteur) {
-    //     $this -> _actorsOfRole[] = $acteur;
-    //     $acteur -> addRoleToActor($this);
-    // }
-
-    // public function afficherActeursDeRole() {
-    //     $result = "<h3>Le role de \"$this\" a été incarné par: </h3>
-    //                 <ul>";
-    //     foreach($this->_actorsOfRole as $actor) {
-    //         $result .= "<li>$actor</li>";
-    //     }
-
-    //     $result .= "</ul>";
-
-    //     return $result;
-    // }
 ?>
